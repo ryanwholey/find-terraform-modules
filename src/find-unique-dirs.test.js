@@ -21,20 +21,20 @@ describe('findUniqueDirsByGlob', () => {
     const fullDirs = await findUniqueDirsByGlob({
       includes: [
         `${fixturesDir}/**/*.tf`,
-        `${fixturesDir}/**/*.tf.json`,
+        `${fixturesDir}/**/*.tf.json`
       ].join(',')
     })
     expect(fullDirs.map(d => d.replace(fixturesDir, ''))).to.include.members([
       '/parent/child',
       '/dot-json',
       '/top-level',
-      '',
+      ''
     ])
   })
 
   it('should not find dirs for patterns that do not match', async () => {
     const fullDirs = await findUniqueDirsByGlob({
-      includes: 'bad/pattern/*.js',
+      includes: 'bad/pattern/*.js'
     })
     expect(fullDirs.map(d => d.replace(fixturesDir, ''))).to.include.members([])
   })
