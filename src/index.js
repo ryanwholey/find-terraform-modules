@@ -1,6 +1,6 @@
 const core = require('@actions/core')
 
-const findTerraformModules = require('./src/find-unique-dirs')
+const findTerraformModules = require('./find-unique-dirs')
 
 async function main () {
   try {
