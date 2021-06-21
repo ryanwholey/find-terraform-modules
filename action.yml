@@ -1,0 +1,12 @@
+name: 'Hello World'
+description: 'Greet someone and record the time'
+inputs:
+  patterns:  # id of input
+    description: 'List of patterns to search for'
+    default: ['**/*.tf', '**/*.tf?(.json)']
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'node14'
+  main: 'index.js'
