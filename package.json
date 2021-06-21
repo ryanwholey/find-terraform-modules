@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint src",
     "test": "mocha src/*.test.js src/**/*.test.js",
     "build": "ncc build src/index.js -o dist"
   },
