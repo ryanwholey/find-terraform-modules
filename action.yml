@@ -1,12 +1,12 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: Find Terraform Modules
+description: Returns the directories for perceived Terraform modules
 inputs:
-  patterns:  # id of input
-    description: 'List of patterns to search for'
-    default: ['**/*.tf', '**/*.tf?(.json)']
+  includes:
+    description: Comma separated list patterns to search for
+    default: '**/*.tf,**/*.tf.json'
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  directories:
+    description: Terraform module directories
 runs:
   using: 'node14'
-  main: 'index.js'
+  main: 'src/index.js'

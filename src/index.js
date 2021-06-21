@@ -5,7 +5,7 @@ const findTerraformModules = require('./find-unique-dirs')
 async function main () {
   try {
     const dirs = await findTerraformModules({
-      patterns: core.getInput('patterns')
+      includes: core.getInput('includes')
     })
 
     core.setOutput('directories', JSON.stringify(dirs))
