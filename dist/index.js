@@ -2899,8 +2899,8 @@ const path = __nccwpck_require__(622)
 
 const glob = __nccwpck_require__(90)
 
-async function findUniqueDirsByGlob ({ patterns }) {
-  const globber = await glob.create(patterns.join('\n'))
+async function findUniqueDirsByGlob ({ includes }) {
+  const globber = await glob.create(includes.replace(',', '\n'))
   const files = await globber.glob()
 
   return Array.from(new Set(files.map(f => path.parse(f).dir)))
@@ -3013,7 +3013,7 @@ const findTerraformModules = __nccwpck_require__(129)
 async function main () {
   try {
     const dirs = await findTerraformModules({
-      patterns: core.getInput('patterns')
+      includes: core.getInput('includes')
     })
 
     core.setOutput('directories', JSON.stringify(dirs))
