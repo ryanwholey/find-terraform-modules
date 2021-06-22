@@ -2,7 +2,7 @@
 
 A GitHub action to find Terraform module directories.
 
-The impetus for this action is to find and pass module directories to other jobs, so they can be used in a matrix set to individually test, lint, release, etc. each module.
+The intended use case for this action is to find and pass module directories to other jobs, so they can be used in a matrix set to individually test, lint, release, etc. each module.
 
 ## Usage
 
