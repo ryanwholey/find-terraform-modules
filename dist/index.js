@@ -3851,15 +3851,14 @@ const util = __nccwpck_require__(669)
 
 const glob = util.promisify(__nccwpck_require__(957))
 
-async function findUniqueDirsByGlob ({ patterns, options = {} }) {
+async function findUniqueDirs ({ patterns, options = {} }) {
   const results = (await Promise.all(patterns.map((p) => glob(p, options))))
-  console.log(results) // eslint-disable-line no-console
   const files = results.reduce((acc, dirs) => ([...acc, ...dirs]), [])
 
   return Array.from(new Set(files.map(f => path.parse(f).dir)))
 }
 
-module.exports = findUniqueDirsByGlob
+module.exports = findUniqueDirs
 
 
 /***/ }),
@@ -3953,14 +3952,13 @@ var __webpack_exports__ = {};
 (() => {
 const core = __nccwpck_require__(186)
 
-const findTerraformModules = __nccwpck_require__(129)
+const findUniqueDirs = __nccwpck_require__(129)
 
 async function main () {
   try {
-    const dirs = await findTerraformModules({
+    const dirs = await findUniqueDirs({
       patterns: core.getInput('patterns').split(',').filter(p => !!p)
     })
-    console.log(dirs) // eslint-disable-line no-console
     core.setOutput('directories', JSON.stringify(dirs))
   } catch (error) {
     core.setFailed(error.message)
