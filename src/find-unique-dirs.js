@@ -1,10 +1,11 @@
 const path = require('path')
+const util = require('util')
 
-const glob = require('@actions/glob')
+const glob = util.promisify(require('glob'))
 
-async function findUniqueDirsByGlob ({ includes }) {
-  const globber = await glob.create(includes.replace(',', '\n'))
-  const files = await globber.glob()
+async function findUniqueDirsByGlob ({ patterns, options = {} }) {
+  const results = (await Promise.all(patterns.map((p) => glob(p, options))))
+  const files = results.reduce((acc, dirs) => ([...acc, ...dirs]), [])
 
   return Array.from(new Set(files.map(f => path.parse(f).dir)))
 }
