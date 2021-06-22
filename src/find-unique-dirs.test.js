@@ -14,10 +14,10 @@ const tests = [
       }
     },
     expected: [
-      'foo'
+      './foo'
     ],
     props: {
-      patterns: ['**/*.tf']
+      patterns: ['./**/*.tf']
     }
   },
   {
@@ -30,10 +30,10 @@ const tests = [
       }
     },
     expected: [
-      'foo/bar'
+      './foo/bar'
     ],
     props: {
-      patterns: ['**/*.tf']
+      patterns: ['./**/*.tf']
     }
   },
   {
@@ -47,11 +47,11 @@ const tests = [
       }
     },
     expected: [
-      'foo',
-      'bar'
+      './foo',
+      './bar'
     ],
     props: {
-      patterns: ['**/*.tf', '**/*.tf.json']
+      patterns: ['./**/*.tf', './**/*.tf.json']
     }
   },
   {
@@ -63,7 +63,7 @@ const tests = [
     },
     expected: [],
     props: {
-      patterns: ['**/*.tf']
+      patterns: ['./**/*.tf']
     }
   },
   {
@@ -77,11 +77,11 @@ const tests = [
       }
     },
     expected: [
-      'parent',
-      'parent/child'
+      './parent',
+      './parent/child'
     ],
     props: {
-      patterns: ['**/*.tf']
+      patterns: ['./**/*.tf']
     }
   },
   {
@@ -98,10 +98,10 @@ const tests = [
       }
     },
     expected: [
-      'foo'
+      './foo'
     ],
     props: {
-      patterns: ['**/*.tf']
+      patterns: ['./**/*.tf']
     }
   },
   {
@@ -115,11 +115,11 @@ const tests = [
       }
     },
     expected: [
-      'foo',
-      'bar'
+      './foo',
+      './bar'
     ],
     props: {
-      patterns: ['**/*.tf?(.json)']
+      patterns: ['./**/*.tf?(.json)']
     }
   }
 ]

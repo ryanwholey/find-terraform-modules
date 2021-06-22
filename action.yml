@@ -3,7 +3,7 @@ description: Returns the directories for perceived Terraform modules
 inputs:
   patterns:
     description: Comma separated list patterns to search for
-    default: '**/*.tf?(.json)'
+    default: './**/*.tf?(.json)'
 outputs:
   directories:
     description: Terraform module directories
