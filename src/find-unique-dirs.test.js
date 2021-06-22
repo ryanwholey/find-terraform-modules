@@ -3,7 +3,7 @@ const fs = require('fs')
 
 const { expect } = require('chai')
 
-const findUniqueDirsByGlob = require('./find-unique-dirs')
+const findUniqueDirs = require('./find-unique-dirs')
 
 const tests = [
   {
@@ -135,14 +135,14 @@ function createFs (tree, root = '/tmp') {
   })
 }
 
-describe('findUniqueDirsByGlob', async () => {
+describe('findUniqueDirs', async () => {
   tests
     .forEach(({ name, filsystem, props, expected }) => {
       it(name, async () => {
         const root = await fs.promises.mkdtemp('/tmp/')
         createFs(filsystem, root)
 
-        const dirs = await findUniqueDirsByGlob({
+        const dirs = await findUniqueDirs({
           ...props,
           options: {
             ...props.options,
