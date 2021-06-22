@@ -135,7 +135,7 @@ function createFs (tree, root = '/tmp') {
   })
 }
 
-describe('findUniqueDirs', async () => {
+describe('findUniqueDirs', () => {
   tests
     .forEach(({ name, filsystem, props, expected }) => {
       it(name, async () => {
