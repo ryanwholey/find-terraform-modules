@@ -35,8 +35,6 @@ jobs:
 
 ### Action inputs
 
-All inputs are **optional**. If not set, sensible defaults will be used.
-
 | Name | Description | Default |
 | --- | --- | --- |
 | `patterns` | Comma separated list of glob patterns (see [node-glob](https://github.com/isaacs/node-glob#glob-primer) for supported syntax) | `./**/*.tf?(.json)` |
