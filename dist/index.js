@@ -3853,6 +3853,7 @@ const glob = util.promisify(__nccwpck_require__(957))
 
 async function findUniqueDirsByGlob ({ patterns, options = {} }) {
   const results = (await Promise.all(patterns.map((p) => glob(p, options))))
+  console.log(results) // eslint-disable-line no-console
   const files = results.reduce((acc, dirs) => ([...acc, ...dirs]), [])
 
   return Array.from(new Set(files.map(f => path.parse(f).dir)))
